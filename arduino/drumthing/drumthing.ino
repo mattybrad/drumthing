@@ -5,7 +5,7 @@
 #include <SerialFlash.h>
 
 // GUItool: begin automatically generated code
-AudioSynthNoisePink      pink1;          //xy=78,321
+AudioSynthNoisePink      pink1;          //xy=80,243
 AudioMixer4              mixer1;         //xy=218,318
 AudioFilterStateVariable filter2;        //xy=365,318
 AudioFilterStateVariable filter3;        //xy=365,382
@@ -30,23 +30,25 @@ AudioConnection          patchCord12(mixer2, 0, i2s1, 1);
 AudioControlSGTL5000     sgtl5000_1;     //xy=281,34
 // GUItool: end automatically generated code
 
-
 void setup() {
   // put your setup code here, to run once:
   AudioMemory(50);
   sgtl5000_1.enable();
-  sgtl5000_1.volume(0.5);
-  pink1.amplitude(0.6);
-  filter1.frequency(300);
+  sgtl5000_1.volume(0.7);
+  pink1.amplitude(0.7);
+  filter1.frequency(100);
+  filter1.resonance(2);
   filter2.frequency(800);
-  filter3.frequency(500);
-  envelope1.sustain(0.3);
-  envelope2.sustain(0.3);
+  filter3.frequency(300);
+  envelope1.sustain(0.6);
+  envelope2.sustain(0.1);
   envelope3.sustain(0.3);
-  envelope1.release(2000);
-  envelope2.release(1000);
+  envelope1.release(200);
+  envelope2.release(80);
   envelope3.release(500);
-  mixer2.gain(2,0.5);
+  mixer2.gain(0,1);
+  mixer2.gain(1,0.1);
+  mixer2.gain(2,0.05);
 }
 
 void loop() {
